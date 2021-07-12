@@ -7,13 +7,14 @@ const HomePage = () => {
     const [data, setData] = useState(rawdata);
 
     useEffect(() => {
-        setData(rawdata);
-    }, data);
+        setData(rawdata); 
+    });
+    // console.log(data);
 
     return (
         <Fragment>
             <Filter />
-            <ShowBox />
+            <ShowBox products={data}/>
         </Fragment>
     )
 }

@@ -15,10 +15,10 @@ function App() {
     <Router>
       <Header />
       <Switch>
-        <Route path='/'>
+        <Route path='/' exact>
           <HomePage />
         </Route>
-        <Route path='/'>
+        <Route path='/product'>
           <ItemDetail />
         </Route>
       </Switch>
