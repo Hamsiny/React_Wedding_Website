@@ -1,0 +1,7 @@
+.showbox {
+    padding: 20px 2px 20px 30px;  
+    max-height: 700px; 
+    border: solid 1px grey;
+    border-radius: 5px;
+    overflow-y: auto;
+}

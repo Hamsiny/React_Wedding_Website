@@ -41,7 +41,7 @@ const Filter = () => {
                         <option value="1000">501 - 1000</option>
                         <option value="1001">Over 1000</option>
                     </select>
-                    <button className="btnn mr-2">
+                    <button className="btnn mx-1">
                         Filter
                     </button>
                 </div>

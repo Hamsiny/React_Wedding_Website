@@ -7,12 +7,14 @@ import {
 } from "react-router-dom";
 import Header from './components/Header/Header';
 import Filter from './components/Filter/Filter';
+import ShowBox from './components/ShowBox/ShowBox';
 
 function App() {
   return (
     <Router>
       <Header />
       <Filter />
+      <ShowBox />
     </Router>
   );
 }
