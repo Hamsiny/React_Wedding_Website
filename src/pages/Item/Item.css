@@ -1,0 +1,15 @@
+.itemlink {
+    color: grey;
+}
+
+.itemimage {
+    width: 100%; 
+    height: 200px; 
+    display: block; 
+    border-radius: 5px;
+}
+
+.itemp {
+    width: 90%; 
+    height: 35px
+}
