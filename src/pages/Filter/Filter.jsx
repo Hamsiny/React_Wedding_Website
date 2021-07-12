@@ -15,16 +15,16 @@ const Filter = () => {
 
     // whole filter function
     const showWithFilter = () => {
-        setData(rawdata);
-        let proWithCate = filterCategory(data, document.getElementById('category').value);
+        // setData(rawdata);
+        let proWithCate = filterCategory(rawdata, document.getElementById('category').value);
         let proWithFilter = filterPrice(proWithCate, document.getElementById('price').value);
         setData(proWithFilter);
-        console.log(data);
+        // console.log(data);
     }
     
     // category filter
     const filterCategory = (productsArray, cateId) => {
-        return productsArray.filter(product => (product.categoryId === cateId || cateId === "0"));
+        return productsArray.filter(product => (product.categoryId == cateId || cateId == "0"));
     }
 
     // price filter
@@ -59,11 +59,13 @@ const Filter = () => {
     // sorting products ascending
     const productsAsc = () => {
         setData(data.sort((a, b) => a.price - b.price));
+        console.log(data);
     }
 
     // sorting products descending
     const productsDesc = () => {
         setData(data.sort((a, b) => b.price - a.price));
+        console.log(data);
     }
 
     // reset products to origin
@@ -112,22 +114,22 @@ const Filter = () => {
                         <option value="1000">501 - 1000</option>
                         <option value="1001">Over 1000</option>
                     </select>
-                    <button className="btnn mx-1">
+                    <button className="btnn mx-1" onClick={showWithFilter}>
                         Filter
                     </button>
                 </div>
                 <div className="col-lg-3 col-md-6 col-sm-12 mt-3">
                     <h4>Sort</h4>
-                    <button className="btnn mr-2">
+                    <button className="btnn mr-2" onClick={productsAsc}>
                         Ascending
                     </button>
-                    <button className="btnn mr-2">
+                    <button className="btnn mr-2" onClick={productsDesc}>
                         Decending
                     </button>
                 </div>
                 <div className="col-lg-3 col-md-6 col-sm-12 mt-3">
                     <h4>Reset</h4>
-                    <button className="btnn mr-2">
+                    <button className="btnn mr-2" onClick={resetFilter}>
                         Reset
                     </button>
                 </div>
