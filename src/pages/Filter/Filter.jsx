@@ -1,7 +1,14 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
+import rawdata from '../../data/data.js'
 import './Filter.css'
 
 const Filter = () => {
+    const [data, setData] = useState(rawdata);
+
+    useEffect(() => {
+        setData(rawdata);
+    }, data);
+
     return (
         <div>
             <div className="row mt-3 mx-4">

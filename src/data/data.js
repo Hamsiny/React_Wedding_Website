@@ -1,4 +1,4 @@
-var rawdata = [
+const rawdata = [
   {
       "prodId": 2,
       "prodTypeId": 1,
@@ -31400,3 +31400,5 @@ var rawdata = [
       ]
   }
 ]
+
+export default rawdata
