@@ -1,9 +1,80 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import rawdata from '../../data/data.js'
+import ShowBox from '../ShowBox/ShowBox'
 import './Filter.css'
 
-const Filter = () => {   
+const Filter = () => {  
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        const getData = () => {
+            setData(rawdata); 
+        }
+        getData(); 
+    }, []);
+
+    // whole filter function
+    const showWithFilter = () => {
+        setData(rawdata);
+        let proWithCate = filterCategory(data, document.getElementById('category').value);
+        let proWithFilter = filterPrice(proWithCate, document.getElementById('price').value);
+        setData(proWithFilter);
+        console.log(data);
+    }
+    
+    // category filter
+    const filterCategory = (productsArray, cateId) => {
+        return productsArray.filter(product => (product.categoryId === cateId || cateId === "0"));
+    }
+
+    // price filter
+    const filterPrice = (productsArray, priceFilter) => {
+        let priceProducts;
+        switch (priceFilter) {
+            case "0":
+                priceProducts = productsArray;
+                break;
+            case "100":
+                priceProducts = productsArray.filter(product => 
+                    product.price <= 100);
+                break;
+            case "500":
+                priceProducts = productsArray.filter(product => 
+                    (product.price > 100 && product.price <= 500));
+                break;
+            case "1000":
+                priceProducts = productsArray.filter(product => 
+                    (product.price > 500 && product.price <= 1000));
+                break;
+            case "1001":
+                priceProducts = productsArray.filter(product => 
+                    product.price > 1000);
+                break;
+            default:
+                break;
+        }
+        return priceProducts;
+    }
+
+    // sorting products ascending
+    const productsAsc = () => {
+        setData(data.sort((a, b) => a.price - b.price));
+    }
+
+    // sorting products descending
+    const productsDesc = () => {
+        setData(data.sort((a, b) => b.price - a.price));
+    }
+
+    // reset products to origin
+    const resetFilter = () => {
+        document.getElementById('category').value = "0";
+        document.getElementById('price').value = "0";
+        setData(rawdata);
+    }
+    
     return (
-        <div>
+        <>
             <div className="row mt-3 mx-4">
                 <div className="col-lg-3 col-md-6 col-sm-12 mt-3">
                     <h4>Category</h4>
@@ -28,7 +99,7 @@ const Filter = () => {
                         <option value="47">Luxe Dream Wedding Flowers</option>
                         <option value="49">Luxe Dream Floral Studio</option>
                     </select>
-                    <button className="btnn mx-1">
+                    <button className="btnn mx-1" onClick={showWithFilter}>
                         Show
                     </button>
                 </div>
@@ -61,7 +132,8 @@ const Filter = () => {
                     </button>
                 </div>
             </div>
-        </div>
+            <ShowBox products={data}/>
+        </>
     )
 }
 

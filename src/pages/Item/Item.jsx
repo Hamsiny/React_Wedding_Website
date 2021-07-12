@@ -14,7 +14,7 @@ const Item = ({ prodId, prodUrl, prodTitle, prodPrice }) => {
         <>
             <div className="col-lg-2 col-md-4 col-sm-12 mb-3">
                 <Link to={urlParams} className='itemlink'>
-                    <img src={imgUrl} className='itemimage'/>
+                    <img src={imgUrl} className='itemimage' alt={prodTitle}/>
                     <p className='itemp'>{prodTitle}</p>
                     <p>$ {prodPrice}</p>
                 </Link>
