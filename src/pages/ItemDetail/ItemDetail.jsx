@@ -17,10 +17,10 @@ const ItemDetail = () => {
         <div>
             <div className="container mt-5">
                 <div className="row">
-                <div className="col-lg-6 col-md-12" id="prodImg"><img src={imgUrl} className='detailimg'/></div>
+                <div className="col-lg-6 col-md-12" id="prodImg"><img src={imgUrl} className='detailimg' alt={prodTitle}/></div>
                 <div className="col-lg-6 col-md-12">
                     <h3 className="mt-5" id="prodTitle">{prodTitle}</h3>
-                    <h5 className="mt-2" id="prodId">{id}</h5>
+                    <h5 className="mt-2" id="prodId">Product ID: x{id}</h5>
                     <p className="mt-5" id="prodDescription">{prodDescription}</p>
                     <Link to="/"><button className="btnn">Home</button></Link>
                 </div>

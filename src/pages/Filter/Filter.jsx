@@ -13,6 +13,12 @@ const Filter = () => {
         getData(); 
     }, []);
 
+    // componentdidmount
+
+    // state = {
+    //     data: []
+    // }
+
     // whole filter function
     const showWithFilter = () => {
         // setData(rawdata);
@@ -58,12 +64,15 @@ const Filter = () => {
 
     // sorting products ascending
     const productsAsc = () => {
-        setData(data.sort((a, b) => a.price - b.price));
+        console.log(data);
+        const tempData = data.filter(prod => prod.prodId != 90);
+        setData(tempData.sort((a, b) => a.price - b.price));
         console.log(data);
     }
 
     // sorting products descending
     const productsDesc = () => {
+        console.log(data);
         setData(data.sort((a, b) => b.price - a.price));
         console.log(data);
     }
